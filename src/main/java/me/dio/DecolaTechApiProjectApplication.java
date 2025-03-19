@@ -1,4 +1,4 @@
-package me.dio.Decola_Tech_API_Project;
+package me.dio;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
