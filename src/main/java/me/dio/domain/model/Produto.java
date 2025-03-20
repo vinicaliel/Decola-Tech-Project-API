@@ -2,25 +2,24 @@ package me.dio.domain.model;
 
 import java.math.BigDecimal;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 
 @Entity(name = "tb_produto")
 public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String nomeProduto;
     private String descricao;
+    @Column(name = "available_limit", nullable = false,precision = 13, scale = 2)
     private BigDecimal preco;
 
-    @ManyToOne
-    @JoinColumn(name = "categoria_id", nullable = false)
-    private Categoria categoria;
+
 
     // Getters e Setters
     public Long getId() {
@@ -53,13 +52,6 @@ public class Produto {
 
     public void setPreco(BigDecimal preco) {
         this.preco = preco;
-    }
+    }}
 
-    public Categoria getCategoria() {
-        return categoria;
-    }
 
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
-    }
-}
